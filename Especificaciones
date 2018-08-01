@@ -12,3 +12,65 @@ Users:
 	Esta Semana:
 		Diseño
 			--> Campañas
+
+
+
+
+
+
+
+
+												███╗   ███╗ ██████╗ ██████╗ ███████╗██╗      ██████╗ ███████╗
+												████╗ ████║██╔═══██╗██╔══██╗██╔════╝██║     ██╔═══██╗██╔════╝
+												██╔████╔██║██║   ██║██║  ██║█████╗  ██║     ██║   ██║███████╗
+												██║╚██╔╝██║██║   ██║██║  ██║██╔══╝  ██║     ██║   ██║╚════██║
+												██║ ╚═╝ ██║╚██████╔╝██████╔╝███████╗███████╗╚██████╔╝███████║
+												╚═╝     ╚═╝ ╚═════╝ ╚═════╝ ╚══════╝╚══════╝ ╚═════╝ ╚══════╝
+
+
+                                    										██╗   ██╗
+                                    										╚██╗ ██╔╝
+                                     										 ╚████╔╝ 
+                                      										  ╚██╔╝  
+                                       										   ██║   
+                                       										   ╚═╝ 
+
+
+                                    ███╗   ███╗██╗ ██████╗ ██████╗  █████╗  ██████╗██╗ ██████╗ ███╗   ██╗███████╗███████╗
+									████╗ ████║██║██╔════╝ ██╔══██╗██╔══██╗██╔════╝██║██╔═══██╗████╗  ██║██╔════╝██╔════╝
+									██╔████╔██║██║██║  ███╗██████╔╝███████║██║     ██║██║   ██║██╔██╗ ██║█████╗  ███████╗
+									██║╚██╔╝██║██║██║   ██║██╔══██╗██╔══██║██║     ██║██║   ██║██║╚██╗██║██╔══╝  ╚════██║
+									██║ ╚═╝ ██║██║╚██████╔╝██║  ██║██║  ██║╚██████╗██║╚██████╔╝██║ ╚████║███████╗███████║
+									╚═╝     ╚═╝╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝╚══════╝
+                                                                                                                                                                  
+php artisan make:model Models/City -m
+
+php artisan make:model Models/Transfer -m
+
+
+
+
+php artisan make:model Models/Category -m
+
+php artisan make:model Models/Activity -m
+
+php artisan make:model Models/Time -m
+
+php artisan make:model Models/Ticket -m
+
+
+
+php artisan make:model Models/Purchase -m
+
+php artisan make:model Models/Buy_transfer -m
+
+php artisan make:model Models/Buy_activity -m
+
+php artisan make:model Models/Buy_hotel -m
+
+
+php artisan make:model Models/Season -m
+php artisan make:model Models/Campaign -m
+php artisan make:model Models/Destination -m
+
+php artisan make:migration campaign_destination_table 
