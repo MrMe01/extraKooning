@@ -15,6 +15,7 @@ class CreateTimesTable extends Migration
     {
         Schema::create('times', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('schedule',45);
             $table->timestamps();
         });
     }
@@ -26,6 +27,7 @@ class CreateTimesTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('tickets');
         Schema::dropIfExists('times');
     }
 }

@@ -1,7 +1,6 @@
 
 Users:
 	Admin
-	
 	Ventas--> Perfil, Reportes, Reservas, Actividades
 	Diseño--> Perfil, Campañas, Blog, Home , Reservas/Buscar Promociones
 
@@ -74,3 +73,12 @@ php artisan make:model Models/Campaign -m
 php artisan make:model Models/Destination -m
 
 php artisan make:migration campaign_destination_table 
+
+
+
+
+php artisan make:model Models/Blog -m
+php artisan make:model Models/Segment -m
+
+php artisan make:model Models/Diary -m
+php artisan make:model Models/Contact -m
