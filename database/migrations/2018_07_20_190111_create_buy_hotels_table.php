@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSeasonsTable extends Migration
+class CreateBuyHotelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,15 @@ class CreateSeasonsTable extends Migration
      */
     public function up()
     {
-        Schema::create('seasons', function (Blueprint $table) {
+        Schema::create('buy_hotels', function (Blueprint $table) {
             $table->increments('id');
+            $table->longText('book');
+            $table->longText('rate');
+            $table->longText('answer');
+            $table->longText('booking');
+            $table->unsignedInteger('purchase_id');
             $table->timestamps();
+            $table->foreign('purchase_id')->references('id')->on('purchases');
         });
     }
 
@@ -26,6 +32,6 @@ class CreateSeasonsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('seasons');
+        Schema::dropIfExists('buy_hotels');
     }
 }
