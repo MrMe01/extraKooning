@@ -40,10 +40,42 @@ class DatabaseSeeder extends Seeder
 
 
         DB::table('activities')->insert([
-            'name'      => 'Administrator',
-            'email'     => 'admin@admin.com',
-            'password'  => bcrypt('secret'),
-            'type_user' => 'Admin'
+            'name'          =>  'Xcaret',
+            'description'   =>  'Diviertete con tu familia y amigos, pásala en grande',
+            'map'           =>  'Map Xcaret.jpg',
+            'slogan'        =>  '!Orgullo México¡',
+            'image'         =>  'Xcaret.jpg',
+            'location'      =>  'Muy lejos ',
+            'coordinates'   =>  'x=5 , y = S x/dx +c',
+            'background'    =>  '#EFFBFB',
+            'terms'         =>  'Terminos y condiciones.pdf',
+            'category_id'   =>  1
+        ]);
+        DB::table('activities')->insert([
+            'name'          =>  'Dolphin',
+            'description'   =>  '!Nada con delfines salvajes¡',
+            'map'           =>  'Map Dolphin.gif',
+            'slogan'        =>  '!El paraíso acuatico¡',
+            'image'         =>  'Dolphin.jpg',
+            'location'      =>  'Lugar muy muy lejano',
+            'coordinates'   =>  'x=5 , y = S x/dx +c',
+            'background'    =>  '#EFFBFB',
+            'terms'         =>  'Terminos y condiciones.pdf',
+            'category_id'   =>  2
+        ]);
+
+
+        DB::table('activities')->insert([
+            'name'          =>  'Xel-Há',
+            'description'   =>  '!Nada con peces extraños¡',
+            'map'           =>  'map Xlel-ha.jpg',
+            'slogan'        =>  '!Nada hasta que te ahogues¡',
+            'image'         =>  'Xelha.jpg',
+            'location'      =>  'Fondo de bikini',
+            'coordinates'   =>  'x=5 , y = S x/dx +c',
+            'background'    =>  '#EFFBFB',
+            'terms'         =>  'Terminos y condiciones.pdf',
+            'category_id'   =>  3
         ]);
         // $this->call(UsersTableSeeder::class);
         

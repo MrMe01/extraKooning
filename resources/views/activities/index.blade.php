@@ -71,7 +71,7 @@
 					</td>
 					<td>
 				<div class="col-md-3">
-                <a href="/Tickets/{{$actividad->name}}"><i class="fa fa-eercast" title="Tickets"></i></a>
+                <a href="/Tickets/{{$actividad->name}}"><i class="fa fa-money" title="Tickets"></i></a>
               </div>
               <div class="col-md-3">
                 <a href="/Actividades/{{$actividad->name}}/edit"><i class="fa fa-edit" title="Edit"></i></a>
