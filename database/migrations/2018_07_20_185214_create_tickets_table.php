@@ -23,10 +23,8 @@ class CreateTicketsTable extends Migration
             $table->float('child');
             $table->timestamps();
             $table->integer('activities_id')->unsigned();
-            $table->integer('times_id')->unsigned();
-
+            
             $table->foreign('activities_id')->references('id')->on('activities');
-            $table->foreign('times_id')->references('id')->on('times');
         });
     }
 
