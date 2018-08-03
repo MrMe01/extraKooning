@@ -20,8 +20,8 @@ class CreateBuyTransfersTable extends Migration
             $table->string('type',20);
             $table->string('transport',20);
             $table->string('hotel',100);
-            $table->timestamp('checkin')->nullable();
-            $table->timestamp('checkout')->nullable();
+            $table->timestamp('check_in')->nullable();
+            $table->timestamp('check_out')->nullable();
             $table->timestamps();
             $table->integer('transfers_id')->unsigned();
             $table->integer('purchases_id')->unsigned();

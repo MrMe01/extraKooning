@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Activity;
+use App\Models\Time;
 use Illuminate\Database\Eloquent\Model;
 
 class Ticket extends Model
@@ -15,7 +16,11 @@ class Ticket extends Model
     	'adult',
     	'child',
     ];
-    public function activities(){
+    public function activity(){
     	return $this->belongsTo(Activity::class);
     }
+    public function times(){
+        return $this->belongsToMany(Time::class);
+    }
 }
+
