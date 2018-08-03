@@ -43,10 +43,11 @@
 			<tr>
 				<thead>
 					<th style="vertical-align:middle;" width="20px">ID</th>
-					<th style="vertical-align:middle;" width="">Imagen</th>
-					<th style="vertical-align:middle;" width="">Nombre</th>
-					<th style="vertical-align:middle;" width="">Eslogan</th>
-					<th style="vertical-align:middle;" width="">Categoría</th>
+					<th style="vertical-align:middle;">Imagen</th>
+					<th style="vertical-align:middle;">Nombre</th>
+					<th style="vertical-align:middle;">Eslogan</th>
+					<th style="vertical-align:middle;">Categoría</th>
+					<th style="vertical-align:middle;">Acciones</th>
 					
 				</thead>
 			</tr>
@@ -56,24 +57,71 @@
 				<tr>
 					<td style="vertical-align:middle;" >{{$actividad->id}}</td>
 					<td style="vertical-align:middle;" >
-					<img class="card-img-top rounded-circle mx-auto d-block" style="height:60px; width: 60px; background-color: #EFEFEF;" src="images/actividades/activities/map/{{$actividad->Map}}" >
+					<img class="card-img-top rounded-circle mx-auto d-block" style="height:60px; width: 60px; background-color: #EFEFEF;" src="images/activities/image/{{$actividad->image}}" >
 					</td>
-					<td style="vertical-align:middle;" >{{$actividad->Name}}</td>
-					<td style="vertical-align:middle;" >{{$actividad->Slogan}}</td>
+					<td style="vertical-align:middle;" >{{$actividad->name}}</td>
+					<td style="vertical-align:middle;" >{{$actividad->slogan}}</td>
 
 					<td style="vertical-align:middle;" >
 						@foreach ($categorias as $categoria)
 							@if ($categoria->id == $actividad->category_id)
-								{{$categoria->Name}}
+								{{$categoria->name .' / '.$categoria->type}}
 							@endif
 						@endforeach
 					</td>
+					<td>
+				<div class="col-md-3">
+                <a href="/Tickets/{{$actividad->name}}"><i class="fa fa-eercast" title="Tickets"></i></a>
+              </div>
+              <div class="col-md-3">
+                <a href="/Actividades/{{$actividad->name}}/edit"><i class="fa fa-edit" title="Edit"></i></a>
+              </div>
+
+                <form name="formDel" id="formDel" method="POST" action="/Actividades/{{$actividad->name}}" enctype="multipart/form-data" >
+                  @csrf
+                  @method('DELETE')
+                  
+	                  @php
+	                    $aux = true;  
+	                  @endphp
+	                  @if (count($tickets_id) >= 0)
+	                    @for ($i = 0; $i < count($tickets_id); $i++)
+	                      @if ($tickets_id[$i] == $actividad->activities_id)
+	                        @php
+	                          $aux = false;
+	                        @endphp
+	                      @endif
+	                    @endfor
+	                  @else
+	                      <button  id="but"type="submit" class="fa fa-trash-o" title="Delete"></button>
+	                  @endif
+	                  
+	                  @if ($aux)
+	                    <button  id="but"type="submit" class="fa fa-trash-o" title="Delete"></button>
+	                  @endif
+
+                </form>
+              </div>
+					</td>
 				</tr>
 			@endforeach
+
 		</tbody>
 		</table>
 		{!! $actividades->render(); !!}
 
 </div> 
   </div>
+
+
+
+  <style type="text/css">
+
+          #but{
+            background-color: transparent !important;
+            outline: none;
+            border:0;
+            color: #0000FF;
+          }
+        </style>
 @stop

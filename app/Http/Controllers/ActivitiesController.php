@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Activity;
 use App\Models\Category;
+use App\Models\Ticket;
 use Illuminate\Http\Request;
 
 class ActivitiesController extends Controller
@@ -18,9 +19,43 @@ class ActivitiesController extends Controller
         //$cities = Cities::orderBy('id','ASC')->paginate(5);
         //$empleados= Valach\Empleado::with('emergencias')->get();
        // $categories = Categories::orderBy('id','ASC')->paginate(5);
-        $actividades = Activity::orderBy('id','ASC')->paginate(4);
+        $actividades = Activity::orderBy('id','ASC')->paginate(5);
         $categorias = Category::all();
-        return view('activities/index',compact('actividades','categorias'));
+
+
+        $tickets = Ticket::all();
+
+        $tickets_id = array();
+
+        if(count($tickets) > 0){
+            for ($i=0; $i < count($tickets) ; $i++) { 
+            
+                if(self::comprueba($tickets[$i],$tickets_id)){
+                    array_push($tickets_id,$tickets[$i]->activities_id);
+                }
+            }
+        }
+
+
+
+
+        return view('activities/index',compact('actividades','categorias','tickets_id'));
+    }
+
+
+
+    //Filtro
+    public static function comprueba(Tipoentrada $ticket, $tickets_id)
+    {
+        if(count($tickets_id) > 0){
+            for ($i=0; $i < count($tickets_id) ; $i++) { 
+            
+                if($tickets_id[$i] == $ticket->activities_id ){
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     /**
@@ -30,7 +65,8 @@ class ActivitiesController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('activities/create',compact('categories'));
     }
 
     /**
@@ -41,7 +77,46 @@ class ActivitiesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $actividad = new Activity();
+
+        if($request->hasFile('map')){
+            $file = $request->file('map');
+            $fileName = time().$file->getClientOriginalName();
+            $file->move(public_path().'/images/activities/map/',$fileName);
+            $actividad->map      = $fileName;
+
+        }
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $fileName = time().$file->getClientOriginalName();
+            $file->move(public_path().'/images/activities/image/',$fileName);
+            $actividad->image      = $fileName;
+
+        }
+
+        if($request->hasFile('terms')){
+            $file = $request->file('terms');
+            $fileName = time().$file->getClientOriginalName();
+            $file->move(public_path().'/files/activities/terms/',$fileName);
+            $actividad->terms      = $fileName;
+
+        }
+
+        $actividad->name        =  ucwords($request->input('name'));
+        $actividad->description =  $request->input('description');
+        $actividad->slogan      =  $request->input('slogan');
+        $actividad->location    =  $request->input('location');
+        $actividad->coordinates =  $request->input('coordinates');
+        $actividad->background  =  $request->input('background');
+
+        $categoryName           =   $request->input('category');
+
+        $categoria = Category::where('name',$categoryName)->get();
+        $actividad->category_id =   $categoria[0]->id;
+        $actividad->save();
+
+
+        return redirect('/Actividades');
     }
 
     /**
@@ -52,7 +127,7 @@ class ActivitiesController extends Controller
      */
     public function show($id)
     {
-        //
+        return "Show";
     }
 
     /**
@@ -63,7 +138,7 @@ class ActivitiesController extends Controller
      */
     public function edit($id)
     {
-        //
+        return "Edit";
     }
 
     /**
@@ -75,7 +150,7 @@ class ActivitiesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return "Update";
     }
 
     /**
@@ -86,6 +161,6 @@ class ActivitiesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return "Destroy";
     }
 }
