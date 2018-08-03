@@ -113,9 +113,9 @@
 									<select name="category" class="form-control selectpicker"  required="required">
 										@foreach ($categories as $categoria)
 											@if($categoria->type == 'Parque')
-											<option style="background-color: #E0F8F7;">{{$categoria->name .' / '. $categoria->type}}</option>
+											<option style="background-color: #EFFBFB;">{{$categoria->name .' / '. $categoria->type}}</option>
 											@else
-											<option style="background-color: #F7F8E0;">{{$categoria->name .' / '. $categoria->type}}</option>
+											<option style="background-color: #FBFBEF;">{{$categoria->name .' / '. $categoria->type}}</option>
 											@endif
 											
 										@endforeach

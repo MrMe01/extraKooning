@@ -11,13 +11,42 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
         DB::table('users')->insert([
             'name'      => 'Administrator',
             'email'     => 'admin@admin.com',
             'password'  => bcrypt('secret'),
             'type_user' => 'Admin'
         ]);
+
+
+
+
+        DB::table('categories')->insert([
+            'name'      => 'Experiencias Xcaret',
+            'type'      => 'Parque',
+            'divisa'    =>  18.65 
+                    ]);
+        DB::table('categories')->insert([
+            'name'      => 'Dolphin Discovery',
+            'type'      => 'Parque',
+            'divisa'    =>  18.75 
+                    ]);
+        DB::table('categories')->insert([
+            'name'      => 'Experiencias Xcaret',
+            'type'      => 'Tour',
+            'divisa'    =>  18.50 
+                    ]);
+
+
+
+        DB::table('activities')->insert([
+            'name'      => 'Administrator',
+            'email'     => 'admin@admin.com',
+            'password'  => bcrypt('secret'),
+            'type_user' => 'Admin'
+        ]);
+        // $this->call(UsersTableSeeder::class);
+        
 
         DB::table('campaigns')->insert([
             'name'      => 'Goza tus viajes de negocios',

@@ -65,7 +65,7 @@ class ActivitiesController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
+        $categories = Category::orderBy('name','ASC')->get();
         return view('activities/create',compact('categories'));
     }
 
@@ -109,9 +109,10 @@ class ActivitiesController extends Controller
         $actividad->coordinates =  $request->input('coordinates');
         $actividad->background  =  $request->input('background');
 
-        $categoryName           =   $request->input('category');
+        
 
-        $categoria = Category::where('name',$categoryName)->get();
+        $categoryName = explode('/',$request->input('category'));
+        $categoria = Category::where('name',$categoryName[0])->get();
         $actividad->category_id =   $categoria[0]->id;
         $actividad->save();
 
