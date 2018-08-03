@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ticket;
 use App\Models\Activity;
 use App\Models\Category;
-use App\Models\Ticket;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Collection;
 
 class ActivitiesController extends Controller
 {
@@ -126,9 +127,9 @@ class ActivitiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Activity $actividades)
     {
-        return "Show";
+        //dd($actividades);
     }
 
     /**
@@ -137,9 +138,14 @@ class ActivitiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Activity $activity)
     {
-        return "Edit";
+       //dd($activity);
+        $categories = Category::all();
+        //$actividades = Activity::all();
+        //dd($actividades);
+
+        return view('activities.edit',compact('activity','categories'));
     }
 
     /**

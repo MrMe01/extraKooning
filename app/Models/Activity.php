@@ -22,7 +22,7 @@ class Activity extends Model
     	return $this->belongsTo(Category::class);
     }
     public function getRouteKeyName()
-	{
-    	return 'name';
-	}
+    {
+        return 'name';
+    }
 }
