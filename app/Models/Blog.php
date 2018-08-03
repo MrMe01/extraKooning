@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\City;
+use App\Models\Segment;
 use Illuminate\Database\Eloquent\Model;
 
 class Blog extends Model
@@ -16,5 +17,8 @@ class Blog extends Model
     ];
     public function city(){
     	return $this->belongsTo(City::class);
+    }
+    public function segments(){
+        return $this->hasMany(Segment::class);
     }
 }

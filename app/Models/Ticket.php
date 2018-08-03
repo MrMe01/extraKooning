@@ -16,7 +16,7 @@ class Ticket extends Model
     	'adult',
     	'child',
     ];
-    public function activities(){
+    public function activity(){
     	return $this->belongsTo(Activity::class);
     }
     public function times(){

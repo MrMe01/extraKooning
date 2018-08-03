@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Category;
+use App\Models\Ticket;
 use Illuminate\Database\Eloquent\Model;
 
 class Activity extends Model
@@ -18,8 +19,11 @@ class Activity extends Model
     	'background',
     	'terms',
     ];
-    public function categories(){
+    public function category(){
     	return $this->belongsTo(Category::class);
+    }
+    public function tickets(){
+        return $this->hasMany(Ticket::class);
     }
     public function getRouteKeyName()
 	{
