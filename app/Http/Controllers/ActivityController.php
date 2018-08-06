@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ticket;
 use App\Models\Activity;
 use App\Models\Category;
+use App\Models\Ticket;
 use Illuminate\Http\Request;
-use Illuminate\Database\Eloquent\Collection;
 
-class ActivitiesController extends Controller
+class ActivityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +16,8 @@ class ActivitiesController extends Controller
      */
     public function index()
     {
-        //$cities = Cities::orderBy('id','ASC')->paginate(5);
-        //$empleados= Valach\Empleado::with('emergencias')->get();
-       // $categories = Categories::orderBy('id','ASC')->paginate(5);
-        $actividades = Activity::orderBy('id','ASC')->paginate(5);
+        
+        $activities = Activity::orderBy('id','ASC')->paginate(5);
         $categorias = Category::all();
 
 
@@ -40,12 +37,8 @@ class ActivitiesController extends Controller
 
 
 
-        return view('activities/index',compact('actividades','categorias','tickets_id'));
+        return view('activities/index',compact('activities','categorias','tickets_id'));
     }
-
-
-
-    //Filtro
     public static function comprueba(Tipoentrada $ticket, $tickets_id)
     {
         if(count($tickets_id) > 0){
@@ -66,7 +59,7 @@ class ActivitiesController extends Controller
      */
     public function create()
     {
-        $categories = Category::orderBy('name','ASC')->get();
+         $categories = Category::orderBy('name','ASC')->get();
         return view('activities/create',compact('categories'));
     }
 
@@ -124,23 +117,25 @@ class ActivitiesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Activity  $activity
      * @return \Illuminate\Http\Response
      */
-    public function show(Activity $actividades)
+    public function show(Activity $activity)
     {
-        //dd($actividades);
+        return $activity;
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Activity  $activity
      * @return \Illuminate\Http\Response
      */
-    public function edit(Activity $activity)
+    public function edit($slug)
     {
-       //dd($activity);
+        //dd($slug);
+        $activity = Activity::where('name',$slug)->get();
+        $activity = $activity[0];
         $categories = Category::all();
         //$actividades = Activity::all();
         //dd($actividades);
@@ -152,22 +147,80 @@ class ActivitiesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Activity  $activity
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,  $slug)
     {
-        return "Update";
+        $activity = Activity::where('name',$slug)->get();
+        $activity = $activity[0];
+        
+        $activity->fill($request->except('map','image','terms'));
+        
+        if($request->hasFile('map') ){
+
+            $file = public_path().'/images/activities/map/'.$activity->map;
+            \File::delete($file);
+
+            $Nfile = $request->file('map');
+            $FileName = time().$Nfile->getClientOriginalName();
+            $Nfile->move(public_path().'/images/activities/map/',$FileName);
+            $activity->map  = $FileName;
+
+        }
+
+        if($request->hasFile('image') ){
+
+            $file = public_path().'/images/activities/image/'.$activity->image;
+            \File::delete($file);
+
+            $Nfile = $request->file('image');
+            $FileName = time().$Nfile->getClientOriginalName();
+            $Nfile->move(public_path().'/images/activities/image/',$FileName);
+            $activity->image  = $FileName;
+
+        }
+        if($request->hasFile('terms') ){
+
+            $file = public_path().'/files/activities/terms/'.$activity->terms;
+            \File::delete($file);
+
+            $Nfile = $request->file('terms');
+            $FileName = time().$Nfile->getClientOriginalName();
+            $Nfile->move(public_path().'/files/activities/terms/',$FileName);
+            $activity->terms  = $FileName;
+
+        }
+        
+
+        $activity->save();
+
+        return redirect('/Actividades');
+
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Activity  $activity
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($slug)
     {
-        return "Destroy";
+        $activity = Activity::where('name',$slug)->get();
+        $activity = $activity[0];
+
+        $file = public_path().'/images/activities/map/'.$activity->map;
+        \File::delete($file);
+
+        $file = public_path().'/images/activities/image/'.$activity->image;
+        \File::delete($file);
+
+        $file = public_path().'/files/activities/terms/'.$activity->terms;
+        \File::delete($file);
+
+        $activity->delete();
+        return redirect('/Actividades');
     }
 }

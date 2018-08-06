@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Activity;
 use App\Models\Category;
+use App\Models\Ticket;
 use Illuminate\Http\Request;
 
-class CategoriesController extends Controller
+class TicketController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +16,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categorias = Category::all();
-        return view('categories.index',compact('categorias'));
+        //
     }
 
     /**
@@ -25,7 +26,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('categories.create');
+        //
     }
 
     /**
@@ -36,12 +37,7 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        $categoria = new Category();
-        $categoria->name    =   ucwords($request->input('name'));
-        $categoria->type    =   $request->input('type');
-        $categoria->divisa  =   $request->input('divisa');
-        $categoria->save();
-        return redirect('/Categorias');
+        //
     }
 
     /**
@@ -50,9 +46,16 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show($slug)
     {
-        return $category;
+
+        $activity = Activity::where('name',$slug)->get();
+        $activity = $activity[0];
+
+        $tickets = Ticket::where('activities_id',$activity->id)->paginate(5);
+        $activityy = $activity->name;
+
+        return view('tickets/show',compact('tickets','activityy'));
     }
 
     /**

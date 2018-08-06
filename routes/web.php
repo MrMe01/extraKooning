@@ -25,8 +25,11 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home','HomeController@index')->name('home');
 
 
-Route::resource('/Actividades','ActivitiesController');
+Route::resource('/Actividades','ActivityController');
+
 Route::resource('/Categorias','CategoriesController');
+
+Route::resource('/Entradas','TicketController');
 
 /*
 Route::get('pruebas', function(){

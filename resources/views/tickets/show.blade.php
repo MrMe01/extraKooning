@@ -45,39 +45,34 @@
 					<th style="vertical-align:middle;" width="20px">ID</th>
 					<th style="vertical-align:middle;">Imagen</th>
 					<th style="vertical-align:middle;">Nombre</th>
-					<th style="vertical-align:middle;">Eslogan</th>
-					<th style="vertical-align:middle;">Categoría</th>
+					<th style="vertical-align:middle;">Descripcion</th>
+					<th style="vertical-align:middle;">Precio Adulto</th>
+					<th style="vertical-align:middle;">Precio Niño</th>
+					<th style="vertical-align:middle;">Actividad</th>
 					<th style="vertical-align:middle;">Acciones</th>
 					
 				</thead>
 			</tr>
 		</thead>
 		<tbody>
-			@foreach ($activities as $activity)
+			@foreach ($tickets as $ticket)
 				<tr>
-					<td style="vertical-align:middle;" >{{$activity->id}}</td>
+					<td style="vertical-align:middle;" >{{$ticket->id}}</td>
 					<td style="vertical-align:middle;" >
-					<img class="card-img-top rounded-circle mx-auto d-block" style="height:60px; width: 60px; background-color: #EFEFEF;" src="images/activities/image/{{$activity->image}}" >
+					<img class="card-img-top rounded-circle mx-auto d-block" style="height:60px; width: 60px; background-color: #EFEFEF;" src="images/activities/image/{{$ticket->image}}" >
 					</td>
-					<td style="vertical-align:middle;" >{{$activity->name}}</td>
-					<td style="vertical-align:middle;" >{{$activity->slogan}}</td>
-
-					<td style="vertical-align:middle;" >
-						@foreach ($categorias as $categoria)
-							@if ($categoria->id == $activity->category_id)
-								{{$categoria->name .' / '.$categoria->type}}
-							@endif
-						@endforeach
-					</td>
-					<td>
+					<td style="vertical-align:middle;" >{{$ticket->name}}</td>
+					<td style="vertical-align:middle;" >{{$ticket->description}}</td>
+					<td style="vertical-align:middle;" >{{ $ticket->adult }}</td>
+					<td style="vertical-align:middle;" >{{ $ticket->child }}</td>
 				<div class="col-md-3">
-                <a href="/Entradas/{{$activity->name}}"><i class="fa fa-money" title="Tickets"></i></a>
+                <a href="/Entradas/{{$ticket->name}}"><i class="fa fa-money" title="Tickets"></i></a>
               </div>
               <div class="col-md-3">
-                <a href="/Actividades/{{$activity->name}}/edit"><i class="fa fa-edit" title="Edit"></i></a>
+                <a href="/Actividades/{{$ticket->name}}/edit"><i class="fa fa-edit" title="Edit"></i></a>
               </div>
 
-                <form name="formDel" id="formDel" method="POST" action="/Actividades/{{$activity->name}}" enctype="multipart/form-data" >
+                <form name="formDel" id="formDel" method="POST" action="/Actividades/{{$ticket->name}}" enctype="multipart/form-data" >
                   @csrf
                   @method('DELETE')
                   
@@ -108,7 +103,7 @@
 
 		</tbody>
 		</table>
-		{!! $activities->render(); !!}
+		{!! $tickets->render(); !!}
 
 </div> 
   </div>

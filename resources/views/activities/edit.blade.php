@@ -29,14 +29,14 @@
 							<div class="form-group m-form__group row">
 								<label for="example-text-input" class="col-2 col-form-label">Nombre</label>
 								<div class="col-7">
-									<input class="form-control m-input" type="text" value="{{$activity->name}}" name="name" required="required" pattern="[A-Za-z]{4-16}">
+									<input class="form-control m-input" type="text" value="{{$activity->name}}" name="name" " pattern="[A-Za-z]{4-16}">
 								</div>
 							</div>
 
 							<div class="form-group m-form__group row">
 								<label class="col-2 col-form-label">Descripción</label>
 								<div class="col-lg-9 col-md-9 col-sm-12">
-									<textarea name="description" class="form-control" data-provide="markdown" rows="10" required="required">{{$activity->description}}</textarea>			
+									<textarea name="description" class="form-control" data-provide="markdown" rows="10" ">{{$activity->description}}</textarea>			
 									<span class="m-form__help">Escribe la descripción del parque</span>
 								</div>
 							</div>
@@ -45,7 +45,7 @@
 
 							
 							<div class="form-group m-form__group row">
-								<label for="example-text-input" class="col-2 col-form-label">Imagen</label>
+								<label for="example-text-input" class="col-2 col-form-label">Mapa</label>
 								<div class="col-8">
 									<input  type="file" name="map" accept="image/png, image/jpeg, image/gif">
 								</div>
@@ -54,22 +54,22 @@
 							<div class="form-group m-form__group row">
 								<label for="example-text-input" class="col-2 col-form-label">Eslogan</label>
 								<div class="col-7">
-									<input class="form-control m-input" type="text" name="slogan" placeholder="!EL mejor Parque!"  required="required" value="{{$activity->slogan}}">
+									<input class="form-control m-input" type="text" name="slogan" placeholder="!EL mejor Parque!"  value="{{$activity->slogan}}">
 								</div>
 							</div>
 
 
 							<div class="form-group m-form__group row">
-										<label class="col-2 col-form-label">Imagen Eslogan</label>
+										<label class="col-2 col-form-label">Imagen</label>
 					                <div class="col-8">
-					                	<input type="file" accept="image/png, image/jpeg, image/gif" name="image"required="required"/>
+					                	<input type="file" accept="image/png, image/jpeg, image/gif" name="image"/>
 					                </div>
 							</div>
 
 							<div class="form-group m-form__group row">
 								<label for="example-text-input" class="col-2 col-form-label">Ubicación</label>
 								<div class="col-7">
-									<input class="form-control m-input" name="location" type="text" value="{{$activity->location}}"required="required">
+									<input class="form-control m-input" name="location" type="text" value="{{$activity->location}}">
 								</div>
 							</div>
 
@@ -96,14 +96,14 @@
 								<label  class="col-2 col-form-label">Color</label>
 								<div class="col-7">
 									<input class="m-input" id="get" onchange="fetch()" type="color" value="{{$activity->background}}">
-									<input type="text" id="put" name="background" >
+									<input type="text" id="put" name="background" value="{{$activity->background}}">
 								</div>
 							</div>
 
 							<div class="form-group m-form__group row">
 										<label class="col-2 col-form-label">Terminos</label>
 					                <div class="col-8">
-					                	<input type="file" accept="file/pdf" name="terms"required="required"/>
+					                	<input type="file" accept="file/pdf" name="terms"/>
 					                </div>
 							</div>
 
@@ -111,26 +111,25 @@
 							<div class="form-group m-form__group row">
 								<label for="example-text-input" class="col-2 col-form-label">Tipo</label>
 								<div class="col-7">
-									<select name="category" class="form-control selectpicker"  required="required">
+									<select name="category" class="form-control selectpicker"  >
 										@foreach ($categories as $categoria)
 											@if($categoria->type == 'Parque')
 
-												@if ($categoria->id == $activity->id_category)
+												@if ($categoria->id == $activity->category_id)
 													<option  selected="true" style="background-color: #EFFBFB;">{{$categoria->name .' / '. $categoria->type}}</option>
 												@else
 													<option  style="background-color: #EFFBFB;">{{$categoria->name .' / '. $categoria->type}}</option>
 												@endif
 											
 											@else
-											@if ($categoria->id == $activity->id_category)
+												@if ($categoria->id == $activity->category_id)
 													<option  selected="true" style="background-color: #FBFBEF;">{{$categoria->name .' / '. $categoria->type}}</option>
 												@else
 													<option  style="background-color: #FBFBEF;">{{$categoria->name .' / '. $categoria->type}}</option>
 												@endif
-
-
 											@endif
-											
+
+																					
 										@endforeach
 									</select>
 								</div>
