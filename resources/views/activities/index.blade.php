@@ -19,6 +19,7 @@
           </div>
         </div>
         
+        
        <div class="col-xl-4 order-1 order-xl-2 m--align-right">
             <div class="dropdown">
 			<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -63,12 +64,10 @@
 					<td style="vertical-align:middle;" >{{$activity->slogan}}</td>
 
 					<td style="vertical-align:middle;" >
-						@foreach ($categorias as $categoria)
-							@if ($categoria->id == $activity->category_id)
-								{{$categoria->name .' / '.$categoria->type}}
-							@endif
-						@endforeach
+						{{-- Categoria --}}
+						{{ $activity->category->name }}
 					</td>
+					
 					<td>
 				<div class="col-md-3">
                 <a href="/Entradas/{{$activity->name}}"><i class="fa fa-money" title="Tickets"></i></a>
@@ -81,24 +80,11 @@
                   @csrf
                   @method('DELETE')
                   
-	                  @php
-	                    $aux = true;  
-	                  @endphp
-	                  @if (count($tickets_id) >= 0)
-	                    @for ($i = 0; $i < count($tickets_id); $i++)
-	                      @if ($tickets_id[$i] == $activity->activities_id)
-	                        @php
-	                          $aux = false;
-	                        @endphp
-	                      @endif
-	                    @endfor
-	                  @else
-	                      <button  id="but"type="submit" class="fa fa-trash-o" title="Delete"></button>
-	                  @endif
+
+                  @if (count($activity->tickets) == 0)
+                  		 <button  id="but"type="submit" class="fa fa-trash-o" title="Delete"></button>
+                  @endif
 	                  
-	                  @if ($aux)
-	                    <button  id="but"type="submit" class="fa fa-trash-o" title="Delete"></button>
-	                  @endif
 
                 </form>
               </div>

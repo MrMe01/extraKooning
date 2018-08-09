@@ -52,6 +52,18 @@ class DatabaseSeeder extends Seeder
             'category_id'   =>  1
         ]);
         DB::table('activities')->insert([
+            'name'          =>  'Xplor Fuego',
+            'description'   =>  'Diviertete con tu familia y amigos, pásala en grande',
+            'map'           =>  'Map Xcaret.jpg',
+            'slogan'        =>  '!Orgullo México¡',
+            'image'         =>  'Xcaret.jpg',
+            'location'      =>  'Muy lejos ',
+            'coordinates'   =>  'x=5 , y = S x/dx +c',
+            'background'    =>  '#EFFBFB',
+            'terms'         =>  'Terminos y condiciones.pdf',
+            'category_id'   =>  1
+        ]);
+        DB::table('activities')->insert([
             'name'          =>  'Dolphin',
             'description'   =>  '!Nada con delfines salvajes¡',
             'map'           =>  'Map Dolphin.gif',
@@ -78,7 +90,15 @@ class DatabaseSeeder extends Seeder
             'category_id'   =>  3
         ]);
         // $this->call(UsersTableSeeder::class);
-        
+        DB::table('tickets')->insert([
+            'name' => 'Entrada Xel-Há Todo Incluído',
+            'image' => 'XelHa1.png',
+            'description' => 'Xel-Há cuenta con varias tiendas ubicadas en puntos estratégicos, donde es posible adquirir una gran variedad de productos como souvenirs exclusivos, artículos de primera necesidad y farmacéuticos.',
+            'content' => 'AdmisiónXelhaAllclude.pdf',
+            'adult' => '100',
+            'child' => '75',
+            'activity_id' => 4,
+        ]);
 
         DB::table('campaigns')->insert([
             'name'      => 'Goza tus viajes de negocios',

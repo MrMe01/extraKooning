@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Activity;
 use App\Models\Category;
 use App\Models\Ticket;
+use Session;
 use Illuminate\Http\Request;
 
 class TicketController extends Controller
@@ -26,7 +27,11 @@ class TicketController extends Controller
      */
     public function create()
     {
-        //
+        $slug = null;
+        $slug = Session::get('slug');
+         
+        $activities = Activity::all();
+        return view('tickets/create',compact('activities','slug'));
     }
 
     /**
@@ -37,7 +42,40 @@ class TicketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ticket = new Ticket();
+
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $fileName = time().$file->getClientOriginalName();
+            $file->move(public_path().'/images/tickets/image/',$fileName);
+            $actividad->map      = $fileName;
+
+        }
+        if($request->hasFile('content')){
+            $file = $request->file('content');
+            $fileName = time().$file->getClientOriginalName();
+            $file->move(public_path().'/files/tickets/content/',$fileName);
+            $actividad->map      = $fileName;
+
+        }
+
+        $ticket->name           = $request->input('name');
+        $ticket->description    = $request->input('description');
+        $ticket->adult          = $request->input('adult');
+        $ticket->child          = $request->input('child');
+
+
+        if(Session::get('slug')){
+            $path = Session::get('slug');
+            Session::forget('slug');
+            return redirect('Entradas/'.$path);
+        }
+        return redirect('Entradas');
+        
+
+        
+
+
     }
 
     /**
@@ -48,11 +86,13 @@ class TicketController extends Controller
      */
     public function show($slug)
     {
-
+        Session::put('slug', $slug);
+        
+        
         $activity = Activity::where('name',$slug)->get();
         $activity = $activity[0];
 
-        $tickets = Ticket::where('activities_id',$activity->id)->paginate(5);
+        $tickets = Ticket::where('activity_id',$activity->id)->paginate(5);
         $activityy = $activity->name;
 
         return view('tickets/show',compact('tickets','activityy'));
@@ -66,12 +106,12 @@ class TicketController extends Controller
      */
     public function edit($id)
     {
-        //
+        return 'Ticket Edit';
     }
 
     /**
      * Update the specified resource in storage.
-     *
+     *p
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response

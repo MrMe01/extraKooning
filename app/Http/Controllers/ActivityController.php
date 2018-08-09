@@ -18,39 +18,21 @@ class ActivityController extends Controller
     {
         
         $activities = Activity::orderBy('id','ASC')->paginate(5);
-        $categorias = Category::all();
 
-
-        $tickets = Ticket::all();
-
-        $tickets_id = array();
-
-        if(count($tickets) > 0){
-            for ($i=0; $i < count($tickets) ; $i++) { 
-            
-                if(self::comprueba($tickets[$i],$tickets_id)){
-                    array_push($tickets_id,$tickets[$i]->activities_id);
-                }
-            }
-        }
-
-
-
-
-        return view('activities/index',compact('activities','categorias','tickets_id'));
+        return view('activities/index',compact('activities'));
     }
-    public static function comprueba(Tipoentrada $ticket, $tickets_id)
+   /* public static function comprueba(Tipoentrada $ticket, $tickets_id)
     {
         if(count($tickets_id) > 0){
             for ($i=0; $i < count($tickets_id) ; $i++) { 
             
-                if($tickets_id[$i] == $ticket->activities_id ){
+                if($tickets_id[$i] == $ticket->activity_id ){
                     return false;
                 }
             }
         }
         return true;
-    }
+    }*/
 
     /**
      * Show the form for creating a new resource.
