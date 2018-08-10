@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Activity;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
@@ -14,8 +15,8 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categorias = Category::all();
-        return view('categories.index',compact('categorias'));
+        $categories = Category::orderBy('id','ASC')->paginate(2);
+        return view('categories.index',compact('categories'));
     }
 
     /**
@@ -50,9 +51,9 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show($slug)
     {
-        return $category;
+        return redirect('/Categorias');
     }
 
     /**
@@ -61,9 +62,18 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        //
+
+        $slugg = explode('-',$slug);
+        $name = $slugg[0];
+        $type = $slugg[1];
+
+         $category  =   Category::where('name',$name)
+                                ->where('type',$type)
+                                ->get();
+        $category = $category[0];
+        return view('categories/edit',compact('category'));
     }
 
     /**
@@ -73,9 +83,20 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
-        //
+        $slugg = explode('-',$slug);
+        $name = $slugg[0];
+        $type = $slugg[1];
+
+        $category  =   Category::where('name',$name)
+                                ->where('type',$type)
+                                ->get();
+
+        $category->fill($request);
+        $category->save();
+
+        return redirect('/Categorias');
     }
 
     /**

@@ -13,7 +13,7 @@
           <div class="form-group m-form__group row align-items-center">
             <div class="col-md-4">
               <div class="m-input-icon m-input-icon--left">
-                <h3>Categorías</h3>
+                <h3>Actividades</h3>
               </div>
             </div>
           </div>
@@ -27,7 +27,7 @@
 			</button>
 			<div class="dropdown-menu" aria-labelledby="dropdownMenu2" >
 				<a href="/Categorias/create" class="dropdown-item">Categoria</a>
-				
+				<a href="/Actividades/create" class="dropdown-item">Actividad</a>
 			</div>
 		    </div>
           <div class="m-separator m-separator--dashed d-xl-none"></div>
@@ -44,40 +44,44 @@
 			<tr>
 				<thead>
 					<th style="vertical-align:middle;" width="20px">ID</th>
+					<th style="vertical-align:middle;">Imagen</th>
 					<th style="vertical-align:middle;">Nombre</th>
-					<th style="vertical-align:middle;">Tipo</th>
-					<th style="vertical-align:middle;">Divisa</th>
+					<th style="vertical-align:middle;">Eslogan</th>
+					<th style="vertical-align:middle;">Categoría</th>
 					<th style="vertical-align:middle;">Acciones</th>
 					
 				</thead>
 			</tr>
 		</thead>
 		<tbody>
-			@foreach ($categories as $category)
+			@foreach ($activities as $activity)
 				<tr>
-					<td style="vertical-align:middle;" >{{$category->id}}</td>
-					<td style="vertical-align:middle;" >{{$category->name}}</td>
-					<td style="vertical-align:middle;" >{{$category->type}}</td>
+					<td style="vertical-align:middle;" >{{$activity->id}}</td>
+					<td style="vertical-align:middle;" >
+					<img class="card-img-top rounded-circle mx-auto d-block" style="height:60px; width: 60px; background-color: #EFEFEF;" src="{{ url('images/activities/image/'.$activity->image) }}" >
+					</td>
+					<td style="vertical-align:middle;" >{{$activity->name}}</td>
+					<td style="vertical-align:middle;" >{{$activity->slogan}}</td>
 
 					<td style="vertical-align:middle;" >
 						{{-- Categoria --}}
-						$ {{ $category->divisa}} USD
+						{{ $activity->category->name }}
 					</td>
 					
 					<td>
 				<div class="col-md-3">
-                <a href="/Actividades/{{$category->name}}-{{$category->type}}"><i class="fa fa-odnoklassniki" title="Actividades"></i></a>
+                <a href="/Entradas/{{$activity->name}}"><i class="fa fa-ticket" title="Tickets"></i></a>
               </div>
               <div class="col-md-3">
-                <a href="/Categorias/{{$category->name}}-{{$category->type}}/edit"><i class="fa fa-edit" title="Edit"></i></a>
+                <a href="/Actividades/{{$activity->name}}/edit"><i class="fa fa-edit" title="Edit"></i></a>
               </div>
 
-                <form name="formDel" id="formDel" method="POST" action="/Categorias/{{$category->name}}" enctype="multipart/form-data" >
+                <form name="formDel" id="formDel" method="POST" action="/Actividades/{{$activity->name}}" enctype="multipart/form-data" >
                   @csrf
                   @method('DELETE')
                   
 
-                  @if (count($category->activities) == 0)
+                  @if (count($activity->tickets) == 0)
                   		 <button  id="but"type="submit" class="fa fa-trash-o" title="Delete"></button>
                   @endif
 	                  
@@ -90,7 +94,7 @@
 
 		</tbody>
 		</table>
-		{!! $categories->render(); !!}
+		{{-- !! $activities->render(); !!} --}}
 
 </div> 
   </div>

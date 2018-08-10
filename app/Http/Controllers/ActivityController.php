@@ -102,9 +102,21 @@ class ActivityController extends Controller
      * @param  \App\Models\Activity  $activity
      * @return \Illuminate\Http\Response
      */
-    public function show(Activity $activity)
+    public function show($slug)
     {
-        return $activity;
+        $slug_a = explode('-',$slug);
+        $name = $slug_a[0];
+        $type = $slug_a[1];
+
+
+        $category = Category::where('name',$name)
+                            ->where('type',$type)
+                            ->get();
+        $activities = Activity::where('category_id',$category[0]->id)->get();
+
+
+
+        return view('activities/show',compact('activities'));
     }
 
     /**

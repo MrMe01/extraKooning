@@ -48,6 +48,7 @@
 					<th style="vertical-align:middle;">Nombre</th>
 					<th style="vertical-align:middle;">Eslogan</th>
 					<th style="vertical-align:middle;">Categoría</th>
+					<th style="vertical-align:middle;">Tipo</th>
 					<th style="vertical-align:middle;">Acciones</th>
 					
 				</thead>
@@ -63,11 +64,8 @@
 					<td style="vertical-align:middle;" >{{$activity->name}}</td>
 					<td style="vertical-align:middle;" >{{$activity->slogan}}</td>
 
-					<td style="vertical-align:middle;" >
-						{{-- Categoria --}}
-						{{ $activity->category->name }}
-					</td>
-					
+					<td style="vertical-align:middle;" >{{ $activity->category->name }} </td>
+					<td style="vertical-align:middle;" >{{ $activity->category->type}} </td>
 					<td>
 				<div class="col-md-3">
                 <a href="/Entradas/{{$activity->name}}"><i class="fa fa-ticket" title="Tickets"></i></a>
