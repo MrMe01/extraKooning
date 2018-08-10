@@ -21,7 +21,7 @@
 			<div class="tab-content">
 				<div class="tab-pane active" id="m_user_profile_tab_1" >
 
-					<form class="m-form m-form--fit m-form--label-align-right" method="POST" enctype="multipart/form-data" action="/Actividades">
+					<form class="m-form m-form--fit m-form--label-align-right" method="POST" enctype="multipart/form-data" action="/Entradas">
 						@csrf
 						<div class="m-portlet__body">
 
@@ -46,27 +46,27 @@
 							<div class="form-group m-form__group row">
 								<label for="example-text-input" class="col-2 col-form-label">Imagen</label>
 								<div class="col-8">
-									<input  type="file" name="image" accept="image/png, image/jpeg, image/gif">
+									<input  type="file" name="image" accept="image/png, image/jpeg, image/gif" required="required">
 								</div>
 							</div>
 
 							<div class="form-group m-form__group row">
 								<label for="example-text-input" class="col-2 col-form-label">Contenido</label>
 								<div class="col-8">
-									<input  type="file" name="content" accept="pdf">
+									<input  type="file" name="content" accept="pdf" required="required">
 								</div>
 							</div>
 
 							<div class="form-group m-form__group row">
 								<label for="example-text-input" class="col-2 col-form-label">Aultos</label>
 								<div class="col-7">
-									<input type="number" name="adult" min="0" max="50" step="any"> MXN
+									<input type="number" name="adult" min="0"  step="any" required="required"> MXN
 								</div>
 							</div>
 							<div class="form-group m-form__group row">
 								<label for="example-text-input" class="col-2 col-form-label">Niños</label>
 								<div class="col-7">
-									<input type="number" name="child" min="0" max="50" step="any"> MXN
+									<input type="number" name="child" min="0"  step="any" required="required"> MXN
 								</div>
 							</div>
 

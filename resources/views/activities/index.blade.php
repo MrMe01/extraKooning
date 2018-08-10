@@ -70,7 +70,7 @@
 					
 					<td>
 				<div class="col-md-3">
-                <a href="/Entradas/{{$activity->name}}"><i class="fa fa-money" title="Tickets"></i></a>
+                <a href="/Entradas/{{$activity->name}}"><i class="fa fa-ticket" title="Tickets"></i></a>
               </div>
               <div class="col-md-3">
                 <a href="/Actividades/{{$activity->name}}/edit"><i class="fa fa-edit" title="Edit"></i></a>

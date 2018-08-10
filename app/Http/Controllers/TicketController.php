@@ -17,7 +17,8 @@ class TicketController extends Controller
      */
     public function index()
     {
-        //
+        $tickets = Ticket::orderBy('id','ASC')->paginate(5);
+        return view('tickets/index',compact('tickets'));
     }
 
     /**
@@ -27,9 +28,17 @@ class TicketController extends Controller
      */
     public function create()
     {
+        
         $slug = null;
-        $slug = Session::get('slug');
-         
+        if (Session::has('users'))
+        {
+            $slug = Session::get('slug');
+        }else{
+                        Session::forget('slug');
+
+        }
+
+
         $activities = Activity::all();
         return view('tickets/create',compact('activities','slug'));
     }
@@ -42,20 +51,21 @@ class TicketController extends Controller
      */
     public function store(Request $request)
     {
+
         $ticket = new Ticket();
 
         if($request->hasFile('image')){
             $file = $request->file('image');
             $fileName = time().$file->getClientOriginalName();
             $file->move(public_path().'/images/tickets/image/',$fileName);
-            $actividad->map      = $fileName;
+            $ticket->image      = $fileName;
 
         }
         if($request->hasFile('content')){
             $file = $request->file('content');
             $fileName = time().$file->getClientOriginalName();
             $file->move(public_path().'/files/tickets/content/',$fileName);
-            $actividad->map      = $fileName;
+            $ticket->content      = $fileName;
 
         }
 
@@ -63,14 +73,25 @@ class TicketController extends Controller
         $ticket->description    = $request->input('description');
         $ticket->adult          = $request->input('adult');
         $ticket->child          = $request->input('child');
-
-
+        
+        //Si existe slug 
         if(Session::get('slug')){
             $path = Session::get('slug');
+
+            $id = Activity::where('name',$path)->get();
+            $ticket->activity_id = $id[0]->id;
             Session::forget('slug');
+            $ticket->save();
             return redirect('Entradas/'.$path);
+
+
         }
-        return redirect('Entradas');
+
+        $ac = Activity::where('name',$request->input(('activity')))->get();
+        
+        $ticket->activity_id = $ac[0]->id;
+        $ticket->save();
+        return redirect('Entradas/');
         
 
         

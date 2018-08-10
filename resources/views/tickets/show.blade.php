@@ -25,7 +25,7 @@
 			</button>
 			<div class="dropdown-menu" aria-labelledby="dropdownMenu2" >
 				<a href="/Entradas/create" class="dropdown-item" title="Agregar Nueva Entrada">Nueva Entrada</a>
-				<a href="/Entradas/create" class="dropdown-item" title="Mostrar Todas Las Entradas De Todas Las Actividades">Listar Todas Las Entradas</a>
+				<a href="/Entradas" class="dropdown-item" title="Mostrar Todas Las Entradas De Todas Las Actividades">Listar Todas Las Entradas</a>
 			</div>
 		    </div>
           <div class="m-separator m-separator--dashed d-xl-none"></div>
@@ -44,9 +44,8 @@
 					
 					<th style="vertical-align:middle;">Imagen</th>
 					<th style="vertical-align:middle;">Nombre</th>
-					<th style="vertical-align:middle;">Descripcion</th>
-					<th style="vertical-align:middle;">Precio Adulto</th>
-					<th style="vertical-align:middle;">Precio Niño</th>
+					<th style="vertical-align:middle;">Adulto</th>
+					<th style="vertical-align:middle;">Niño</th>
 					<th style="vertical-align:middle;">Actividad</th>
 					<th style="vertical-align:middle;">Acciones</th>
 					
@@ -58,16 +57,15 @@
 				<tr>
 					
 					<td style="vertical-align:middle;" >
-					<img class="card-img-top rounded-circle mx-auto d-block" style="height:60px; width: 60px; background-color: #EFEFEF;" src="images/activities/image/{{$ticket->image}}" >
+					<img class="card-img-top rounded-circle mx-auto d-block" style="height:60px; width: 60px; background-color: #EFEFEF;" src="/images/tickets/image/{{$ticket->image}}" >
 					</td>
 					<td style="vertical-align:middle;" >{{$ticket->name}}</td>
-					<td style="vertical-align:middle;" >{{$ticket->description}}</td>
-					<td style="vertical-align:middle;" >{{ $ticket->adult }}</td>
-					<td style="vertical-align:middle;" >{{ $ticket->child }}</td>
+					<td style="vertical-align:middle;" >$ {{ $ticket->adult }} MXN</td>
+					<td style="vertical-align:middle;" >$ {{ $ticket->child }} MXN</td>
 					<td style="vertical-align:middle;" >{{ $ticket->activity->name }}</td>
 					<td>
 				<div class="col-md-3">
-                <a href="/BuyEntradas/{{$ticket->name}}"><i class="fa fa-money" title="Tickets"></i></a>
+                <a href="/BuyEntradas/{{$ticket->name}}"><i class="fa fa-money" title="BuyTickets"></i></a>
               </div>
               <div class="col-md-3">
                 <a href="/Entradas/{{$ticket->name}}/edit"><i class="fa fa-edit" title="Edit"></i></a>
