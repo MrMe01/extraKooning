@@ -34,8 +34,7 @@ class TicketController extends Controller
         {
             $slug = Session::get('slug');
         }else{
-                        Session::forget('slug');
-
+            Session::forget('slug');
         }
 
 
@@ -125,9 +124,14 @@ class TicketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        return 'Ticket Edit';
+
+        $ticket = Ticket::where('name',$slug)->get();
+        $ticket = $ticket[0];
+
+        $activities = Activity::all();
+        return view('tickets/edit',compact('ticket','slug','activities'));
     }
 
     /**
@@ -137,9 +141,13 @@ class TicketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
-        //
+        $ticket = Ticket::where('name',$slug);
+        $ticket = $ticket[0];
+
+        
+
     }
 
     /**

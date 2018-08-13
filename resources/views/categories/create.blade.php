@@ -1,20 +1,38 @@
 @extends('structure.template')
 @section('content')
 <div class="col-xl-9 col-lg-8">
-		<h1 >Categoría</h1>
 		<div class="m-portlet m-portlet--full-height m-portlet--tabs  ">
 			<div class="m-portlet__head">
-				<div class="m-portlet__head-tools">
-					<ul class="nav nav-tabs m-tabs m-tabs-line   m-tabs-line--left m-tabs-line--primary" role="tablist">
-						<li class="nav-item m-tabs__item">
-							<a class="nav-link m-tabs__link active" data-toggle="tab" href="#m_user_profile_tab_1" role="tab">
-								<i class="flaticon-share m--hide"></i>
-								Agregar
-							</a>
-						</li>
-						
-					</ul>
-				</div>
+				<div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
+      <div class="row align-items-center">
+        <div class="col-xl-8 order-2 order-xl-1">
+          <div class="form-group m-form__group row align-items-center">
+            <div class="col-md-4">
+              <div class="m-input-icon m-input-icon--left">
+                <h3>Categoría</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+       <div class="col-xl-4 order-1 order-xl-2 m--align-right">
+            <div class="dropdown">
+			<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			Regresar
+			</button>
+			<div class="dropdown-menu" aria-labelledby="dropdownMenu2" >
+				<a href="/Categorias" class="dropdown-item">Categorías</a>
+				<a href="/Actividades" class="dropdown-item">Actividades</a>
+			</div>
+		    </div>
+          <div class="m-separator m-separator--dashed d-xl-none"></div>
+        
+
+          <div class="m-separator m-separator--dashed d-xl-none"></div>
+        </div>
+      </div>
+    </div>
 				
 				
 			</div>

@@ -57,7 +57,7 @@
 				<tr>
 					
 					<td style="vertical-align:middle;" >
-					<img class="card-img-top rounded-circle mx-auto d-block" style="height:60px; width: 60px; background-color: #EFEFEF;" src="/images/tickets/image/{{$ticket->image}}" >
+					<img class="card-img-top rounded-circle mx-auto d-block" style="height:60px; width: 60px; background-color: #EFEFEF;" src="{{ url('/images/tickets/image/'.$ticket->image) }}" >
 					</td>
 					<td style="vertical-align:middle;" >{{$ticket->name}}</td>
 					<td style="vertical-align:middle;" >$ {{ $ticket->adult }} MXN</td>

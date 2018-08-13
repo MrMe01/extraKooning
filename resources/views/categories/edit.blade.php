@@ -22,6 +22,7 @@
 				<div class="tab-pane active" id="m_user_profile_tab_1" >
 
 					<form class="m-form m-form--fit m-form--label-align-right" method="POST" enctype="multipart/form-data" action="/Categorias/{{$category->name}}-{{ $category->type }}">
+						@method('PUT')
 						@csrf
 						<div class="m-portlet__body">
 
@@ -53,7 +54,7 @@
 							<div class="form-group m-form__group row">
 								<label for="example-text-input" class="col-2 col-form-label">Divisa</label>
 								<div class="col-7">
-									<input type="number" name="divisa" min="0" max="50" step="any" value="{{ $category->divisa }}"> MXN
+									<input type="number" name="divisa" min="0" step="any" value="{{ $category->divisa }}"> MXN
 								</div>
 							</div>
 

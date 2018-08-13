@@ -37,6 +37,9 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
+
+
+
         $categoria = new Category();
         $categoria->name    =   ucwords($request->input('name'));
         $categoria->type    =   $request->input('type');
@@ -92,9 +95,7 @@ class CategoriesController extends Controller
         $category  =   Category::where('name',$name)
                                 ->where('type',$type)
                                 ->get();
-
-        $category->fill($request);
-        $category->save();
+        $category->first()->fill($request->all())->save();
 
         return redirect('/Categorias');
     }
@@ -105,8 +106,19 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($slug)
     {
-        //
+
+        $slugg = explode('-',$slug);
+        $name = $slugg[0];
+        $type = $slugg[1];
+
+        $category  =   Category::where('name',$name)
+                                ->where('type',$type)
+                                ->get();
+
+        $category[0]->delete();
+        return redirect('/Categorias');
+
     }
 }

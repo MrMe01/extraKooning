@@ -72,7 +72,7 @@
                 <a href="/Categorias/{{$category->name}}-{{$category->type}}/edit"><i class="fa fa-edit" title="Edit"></i></a>
               </div>
 
-                <form name="formDel" id="formDel" method="POST" action="/Categorias/{{$category->name}}" enctype="multipart/form-data" >
+                <form name="formDel" id="formDel" method="POST" action="/Categorias/{{$category->name}}-{{ $category->type }}" enctype="multipart/form-data" >
                   @csrf
                   @method('DELETE')
                   
