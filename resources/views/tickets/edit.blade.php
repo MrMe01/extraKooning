@@ -100,7 +100,7 @@
 									<div class="col-7">
 										<button type="submit" class="btn btn-accent m-btn m-btn--air m-btn--custom">Guardar Cambios</button>&nbsp;&nbsp;
 										
-											<a href="/Entradas/{{$slug}}" class="btn btn-secondary m-btn m-btn--air m-btn--custom">Cancelar</a>
+											<a href="/Entradas/{{$path}}" class="btn btn-secondary m-btn m-btn--air m-btn--custom">Cancelar</a>
 										
 										
 										

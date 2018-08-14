@@ -90,7 +90,7 @@ class TicketController extends Controller
         
         $ticket->activity_id = $ac[0]->id;
         $ticket->save();
-        return redirect('Entradas/');
+        return redirect('/Entradas');
         
 
         
@@ -126,12 +126,12 @@ class TicketController extends Controller
      */
     public function edit($slug)
     {
-
+        $path = Session::get('slug');
         $ticket = Ticket::where('name',$slug)->get();
         $ticket = $ticket[0];
 
         $activities = Activity::all();
-        return view('tickets/edit',compact('ticket','slug','activities'));
+        return view('tickets/edit',compact('ticket','slug','activities','path'));
     }
 
     /**
@@ -144,8 +144,10 @@ class TicketController extends Controller
     public function update(Request $request, $slug)
     {
         $ticket = Ticket::where('name',$slug);
-        $ticket = $ticket[0];
+        //$ticket = $ticket[0];
 
+        $ticket->first()->fill($request->all())->save();
+        return redirect('/Entradas');
         
 
     }
@@ -158,6 +160,10 @@ class TicketController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ticket = Ticket::where('name',$slug);
+        $ticket = $ticket[0];
+
+        $ticket->delete();
+        return redirect('/Entradas');
     }
 }

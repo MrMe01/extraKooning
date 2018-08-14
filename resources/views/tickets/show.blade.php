@@ -71,7 +71,7 @@
                 <a href="/Entradas/{{$ticket->name}}/edit"><i class="fa fa-edit" title="Edit"></i></a>
               </div>
 
-                <form name="formDel" id="formDel" method="POST" action="/Actividades/{{$ticket->name}}" enctype="multipart/form-data" >
+                <form name="formDel" id="formDel" method="POST" action="/Entradas/{{$ticket->name}}" enctype="multipart/form-data" >
                   @csrf
                   @method('DELETE')
 	              <button  id="but"type="submit" class="fa fa-trash-o" title="Delete"></button>    
