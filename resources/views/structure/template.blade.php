@@ -350,10 +350,10 @@
                     <ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow ">
                       
                         <li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"><a href="index9bfb.html?page=index&amp;demo=default" class="m-menu__link "><i class="m-menu__link-icon flaticon-line-graph"></i><span class="m-menu__link-title">  <span class="m-menu__link-wrap">      <span class="m-menu__link-text">Perfil</span>      <span class="m-menu__link-badge"></span>  </span></span></a></li>
-                        <li class="m-menu__item  m-menu__item--submenu m-menu__item--open" aria-haspopup="true" m-menu-submenu-toggle="hover"><a href="javascript:;" class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-layers"></i><span class="m-menu__link-text">Reportes</span><i class="m-menu__ver-arrow la la-angle-right"></i></a>
+                        <li class="m-menu__item  m-menu__item--submenu m-menu__item" aria-haspopup="true" m-menu-submenu-toggle="hover"><a href="javascript:;" class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-layers"></i><span class="m-menu__link-text">Reportes</span><i class="m-menu__ver-arrow la la-angle-right"></i></a>
                             <div class="m-menu__submenu "><span class="m-menu__arrow"></span>
                                 <ul class="m-menu__subnav">
-                                    <li class="m-menu__item  m-menu__item--active" aria-haspopup="true" m-menu-submenu-toggle="hover"><a href="javascript:;" class="m-menu__link m-menu__toggle"><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Graficas</span><i class="m-menu__ver-arrow la la-angle-right"></i></a>
+                                    <li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true" m-menu-submenu-toggle="hover"><a href="javascript:;" class="m-menu__link m-menu__toggle"><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Graficas</span><i class="m-menu__ver-arrow la la-angle-right"></i></a>
                                         <div class="m-menu__submenu "><span class="m-menu__arrow"></span>
                                             <ul class="m-menu__subnav">
                                                 <li class="m-menu__item " aria-haspopup="true"><a href="index1f9d.html?page=components/base/tabs/bootstrap&amp;demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Visitas</span></a></li>
@@ -398,6 +398,7 @@
                         <li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true" m-menu-submenu-toggle="hover"><a href="javascript:;" class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-layers"></i><span class="m-menu__link-text">Campañas</span><i class="m-menu__ver-arrow la la-angle-right"></i></a>
                             <div class="m-menu__submenu "><span class="m-menu__arrow"></span>
                                 <ul class="m-menu__subnav">
+                                    <li class="m-menu__item " aria-haspopup="true"><a href="/Campañas" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Campañas</span></a></li>
                                     <li class="m-menu__item " aria-haspopup="true"><a href="/promocion" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Promocion</span></a></li>
                                     <li class="m-menu__item " aria-haspopup="true"><a href="/ofertas" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Ofertas</span></a></li>
                                 </ul>
