@@ -54,6 +54,8 @@
 
     <link rel="stylesheet" type="text/css" href="{{URL::asset('css/browserfile.css')}}">
 
+
+
 <script src="{{URL::asset('js/webfont.js')}}"></script>
         <script>
           WebFont.load({
@@ -466,7 +468,6 @@
     <script src="{{URL::asset('js/dashboard.js')}}" type="text/javascript"></script>
     <script src="{{URL::asset('js/html-table.js')}}" type="text/javascript"></script>
         <script src="{{URL::asset('js/bootstrap.js')}}" type="text/javascript"></script>
-
 
     
 

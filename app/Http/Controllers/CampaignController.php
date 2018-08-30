@@ -25,7 +25,7 @@ class CampaignController extends Controller
      */
     public function create()
     {
-        return 'Campaign Create';
+        return view('campaign/create');
     }
 
     /**
@@ -36,7 +36,8 @@ class CampaignController extends Controller
      */
     public function store(Request $request)
     {
-        return 'Campaign Store';
+        return $request;
+        //return 'Campaign Store';
     }
 
     /**

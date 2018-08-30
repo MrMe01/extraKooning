@@ -24,72 +24,47 @@ class DatabaseSeeder extends Seeder
         DB::table('categories')->insert([
             'name'      => 'Experiencias Xcaret',
             'type'      => 'Parque',
-            'divisa'    =>  18.65 
+            'divisa'    =>  19.00 
                     ]);
         DB::table('categories')->insert([
             'name'      => 'Dolphin Discovery',
             'type'      => 'Parque',
-            'divisa'    =>  18.75 
+            'divisa'    =>  19.00 
                     ]);
         DB::table('categories')->insert([
-            'name'      => 'Experiencias Xcaret',
-            'type'      => 'Tour',
-            'divisa'    =>  18.50 
+            'name'      => 'Rio-Secreto',
+            'type'      => 'Parque',
+            'divisa'    =>  19.00 
+                    ]);
+         DB::table('categories')->insert([
+            'name'      => 'Circus-Soleil',
+            'type'      => 'Parque',
+            'divisa'    =>  19.00 
                     ]);
 
 
 
-        DB::table('activities')->insert([
-            'name'          =>  'Xcaret',
-            'description'   =>  'Diviertete con tu familia y amigos, pásala en grande',
-            'map'           =>  'Map Xcaret.jpg',
-            'slogan'        =>  '!Orgullo México¡',
-            'image'         =>  'Xcaret.jpg',
-            'location'      =>  'Muy lejos ',
-            'coordinates'   =>  'x=5 , y = S x/dx +c',
-            'background'    =>  '#EFFBFB',
-            'terms'         =>  'Terminos y condiciones.pdf',
-            'category_id'   =>  1
-        ]);
-        DB::table('activities')->insert([
-            'name'          =>  'Xplor Fuego',
-            'description'   =>  'Diviertete con tu familia y amigos, pásala en grande',
-            'map'           =>  'Map Xcaret.jpg',
-            'slogan'        =>  '!Orgullo México¡',
-            'image'         =>  'Xcaret.jpg',
-            'location'      =>  'Muy lejos ',
-            'coordinates'   =>  'x=5 , y = S x/dx +c',
-            'background'    =>  '#EFFBFB',
-            'terms'         =>  'Terminos y condiciones.pdf',
-            'category_id'   =>  1
-        ]);
-        DB::table('activities')->insert([
-            'name'          =>  'Dolphin',
-            'description'   =>  '!Nada con delfines salvajes¡',
-            'map'           =>  'Map Dolphin.gif',
-            'slogan'        =>  '!El paraíso acuatico¡',
-            'image'         =>  'Dolphin.jpg',
-            'location'      =>  'Lugar muy muy lejano',
-            'coordinates'   =>  'x=5 , y = S x/dx +c',
-            'background'    =>  '#EFFBFB',
-            'terms'         =>  'Terminos y condiciones.pdf',
-            'category_id'   =>  2
-        ]);
+         DB::table('categories')->insert([
+            'name'      => 'Mayaland-Tours',
+            'type'      => 'Tour',
+            'divisa'    =>  19.00 
+                    ]);
+         DB::table('categories')->insert([
+            'name'      => 'Catamaran-Tours',
+            'type'      => 'Tour',
+            'divisa'    =>  19.00 
+                    ]);
+         DB::table('categories')->insert([
+            'name'      => 'Holbox-Tours',
+            'type'      => 'Tour',
+            'divisa'    =>  19.00 
+                    ]);
 
 
-        DB::table('activities')->insert([
-            'name'          =>  'Xel-Há',
-            'description'   =>  '!Nada con peces extraños¡',
-            'map'           =>  'map Xlel-ha.jpg',
-            'slogan'        =>  '!Nada hasta que te ahogues¡',
-            'image'         =>  'Xelha.jpg',
-            'location'      =>  'Fondo de bikini',
-            'coordinates'   =>  'x=5 , y = S x/dx +c',
-            'background'    =>  '#EFFBFB',
-            'terms'         =>  'Terminos y condiciones.pdf',
-            'category_id'   =>  3
-        ]);
-        // $this->call(UsersTableSeeder::class);
+
+
+
+        /*
         DB::table('tickets')->insert([
             'name' => 'Entrada Xel-Há Todo Incluído',
             'image' => 'XelHa1.jpg',
@@ -126,7 +101,7 @@ class DatabaseSeeder extends Seeder
             'check_in' => '2018-08-23',
             'check_out' => '2018-08-27',
         ]);
-
+        
 
 
 
@@ -579,5 +554,6 @@ class DatabaseSeeder extends Seeder
          DB::table('campaign_destination')->insert([
             'campaign_id'=>'1',
             'destination_id'=>'20',
-        ]);    }
+        ]);*/
+            }
 }

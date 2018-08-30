@@ -27,13 +27,22 @@
     </div>
  --}}
 
-<div class="row">
-	<div class="col-sm-6" style="background-color: #E0F8F7; height: 300px;">
-		Contenido
+
+	<div class="row">
+		<div id="uploads"></div>
+		<div class="col-sm-6" style="background-color: #E0F8F7; height: 300px;">
+			<div class="border border-primary dropzone1" id="dropzone1" style="height: 300px;">
+			Drop Files here to updload dude!
+			</div>
+		</div>
+		<div class="col-sm-6" style="background-color: #FBFBEF; height: 300px;">
+			<div class="border border-primary" style="height: 300px;">
+			Drop a File Here dude!
+			</div>
+		</div>
 	</div>
-	<div class="col-sm-6" style="background-color: #FBFBEF; height: 300px;">
-		Contenido
-	</div>
-</div>
+
+
+
 
 @stop
