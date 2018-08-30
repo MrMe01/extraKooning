@@ -22,8 +22,6 @@ class CreateBlogsTable extends Migration
             $table->integer('views');
             $table->timestamps();
 
-            $table->unsignedInteger('cities_id');
-            $table->foreign('cities_id')->references('id')->on('cities');
         });
     }
 
