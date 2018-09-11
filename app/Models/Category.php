@@ -15,5 +15,8 @@ class Category extends Model
 	public function activities(){
 		return $this->hasMany(Activity::class);
 	}
-    
+    public function getRouteKeyName()
+	{
+    	return 'name';
+	}
 }

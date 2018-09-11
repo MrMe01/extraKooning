@@ -13,6 +13,8 @@ class Buy_activity extends Model
     	'adult',
     	'child',
     	'total',
+        'ticket_id',
+        'purchase_id',
     ];
     public function purchase(){
     	return $this->belongsTo(Purchase::class);

@@ -3,6 +3,9 @@
 
 
 
+
+
+
   
 	<div class="content">
    
@@ -13,7 +16,7 @@
           <div class="form-group m-form__group row align-items-center">
             <div class="col-md-4">
               <div class="m-input-icon m-input-icon--left">
-                <h3>Actividades</h3>
+                <h3>Blogs</h3>
               </div>
             </div>
           </div>
@@ -26,8 +29,8 @@
 			Agregar
 			</button>
 			<div class="dropdown-menu" aria-labelledby="dropdownMenu2" >
-				<a href="/Categorias/create" class="dropdown-item">Categoria</a>
-				<a href="/Actividades/create" class="dropdown-item">Actividad</a>
+				<a href="/Blogs/create" class="dropdown-item">Blog</a>
+				<a href="/Ciudades/create" class="dropdown-item">Ciudades</a>
 			</div>
 		    </div>
           <div class="m-separator m-separator--dashed d-xl-none"></div>
@@ -45,46 +48,36 @@
 				<thead>
 					<th style="vertical-align:middle;" width="20px">ID</th>
 					<th style="vertical-align:middle;">Imagen</th>
-					<th style="vertical-align:middle;">Nombre</th>
-					<th style="vertical-align:middle;">Eslogan</th>
-					<th style="vertical-align:middle;">Categoría</th>
-					<th style="vertical-align:middle;">Tipo</th>
-					<th style="vertical-align:middle;">Acciones</th>
-					
+					<th style="vertical-align:middle;">Titulo</th>
+					<th style="vertical-align:middle;">Locacion</th>
+					<th style="vertical-align:middle;">Descripcion</th>
 				</thead>
 			</tr>
 		</thead>
 		<tbody>
-			@foreach ($activities as $activity)
+			@foreach ($blogs as $blog)
 				<tr>
-					<td style="vertical-align:middle;" >{{$activity->id}}</td>
+					<td style="vertical-align:middle;" >{{$blog->id}}</td>
 					<td style="vertical-align:middle;" >
-					<img class="card-img-top rounded-circle mx-auto d-block" style="height:60px; width: 60px; background-color: #EFEFEF;"
-					 src="{{ url('https://kooningtravel.com/img/activity/'.str_replace(' ', '-', strtolower($activity->category->name)).'/'.$activity->name.'.png') }}" >
+					<img class="card-img-top rounded-circle mx-auto d-block" style="height:60px; width: 60px; background-color: #EFEFEF;" src="images/activities/image/{{$blog->image}}" >
 					</td>
-					<td style="vertical-align:middle;" >{{$activity->name}}</td>
-					<td style="vertical-align:middle;" >{{$activity->slogan}}</td>
+					<td style="vertical-align:middle;" >{{$blog->title}}</td>
+					<td style="vertical-align:middle;" >{{$blog->location}}</td>
 
-					<td style="vertical-align:middle;" >{{ $activity->category->name }} </td>
-					<td style="vertical-align:middle;" >{{ $activity->category->type}} </td>
+					<td style="vertical-align:middle;" >{{ $blog->description }} </td>
+					
 					<td>
 				<div class="col-md-3">
-                <a href="/Entradas/{{$activity->name}}"><i class="fa fa-ticket" title="Tickets"></i></a>
+                <a href="/Segments/{{$blog->id}}"><i class="fa fa-ticket" title="Segments"></i></a>
               </div>
               <div class="col-md-3">
-                <a href="/Actividades/{{$activity->name}}/edit"><i class="fa fa-edit" title="Edit"></i></a>
+                <a href="/Blogs/{{$blog->id}}/edit"><i class="fa fa-edit" title="Edit"></i></a>
               </div>
 
-                <form name="formDel" id="formDel" method="POST" action="/Actividades/{{$activity->name}}" enctype="multipart/form-data" >
+                <form name="formDel" id="formDel" method="POST" action="/Blogs/{{$blog->id}}" enctype="multipart/form-data" >
                   @csrf
                   @method('DELETE')
-                  
-
-                  @if (count($activity->tickets) == 0)
-                  		 <button  id="but"type="submit" class="fa fa-trash-o" title="Delete"></button>
-                  @endif
-	                  
-
+                  		 <button  id="but"type="submit" class="fa fa-trash-o" title="Delete"></button>             
                 </form>
               </div>
 					</td>
@@ -93,11 +86,10 @@
 
 		</tbody>
 		</table>
-		{!! $activities->render(); !!}
+		{!! $blogs->render(); !!}
 
 </div> 
   </div>
-
 
 
   <style type="text/css">
@@ -109,4 +101,6 @@
             color: #0000FF;
           }
         </style>
+
+
 @stop

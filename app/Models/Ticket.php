@@ -15,7 +15,6 @@ class Ticket extends Model
     	'content',
     	'adult',
     	'child',
-        'activity_id'
     ];
     public function activity(){
     	return $this->belongsTo(Activity::class);

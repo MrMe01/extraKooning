@@ -2,16 +2,12 @@
 
 namespace App\Models;
 
-
 use App\Models\Category;
 use App\Models\Ticket;
 use Illuminate\Database\Eloquent\Model;
 
 class Activity extends Model
 {
-    //protected $table = "activities";
-    
-    
 	 protected $fillable = [
     	'name',
     	'description',
@@ -23,11 +19,15 @@ class Activity extends Model
     	'background',
     	'terms',
     ];
+    
     public function category(){
     	return $this->belongsTo(Category::class);
     }
     public function tickets(){
         return $this->hasMany(Ticket::class);
     }
-    
+    public function getRouteKeyName()
+    {
+        return 'name';
+    }
 }

@@ -406,7 +406,7 @@
                                 </ul>
                             </div>
                         </li>
-                        <li class="m-menu__item  m-menu__item--" aria-haspopup="true"><a href="index9bfb.html?page=index&amp;demo=default" class="m-menu__link "><i class="m-menu__link-icon flaticon-line-graph"></i><span class="m-menu__link-title">  <span class="m-menu__link-wrap">      <span class="m-menu__link-text">Blog</span>      <span class="m-menu__link-badge"></span>  </span></span></a></li>
+                        <li class="m-menu__item  m-menu__item--" aria-haspopup="true"><a href="/Blogs" class="m-menu__link "><i class="m-menu__link-icon flaticon-line-graph"></i><span class="m-menu__link-title">  <span class="m-menu__link-wrap">      <span class="m-menu__link-text">Blog</span>      <span class="m-menu__link-badge"></span>  </span></span></a></li>
                         <li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true" m-menu-submenu-toggle="hover"><a href="javascript:;" class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-layers"></i><span class="m-menu__link-text">Home</span><i class="m-menu__ver-arrow la la-angle-right"></i></a>
                             <div class="m-menu__submenu "><span class="m-menu__arrow"></span>
                                 <ul class="m-menu__subnav">
@@ -461,6 +461,7 @@
     </div>
     <!-- end::Scroll Top -->
     <!--begin::Base Scripts -->
+        <script type="text/javascript" src="{{ url('https://unpkg.com/popper.js@1.14.4/dist/umd/popper.min.js') }}"></script>
     <script src="{{URL::asset('js/bootstrap.js')}}" type="text/javascript"></script>
 
     <script src="{{URL::asset('js/vendors.bundle.js')}}" type="text/javascript"></script>

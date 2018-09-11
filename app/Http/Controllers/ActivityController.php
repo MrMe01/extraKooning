@@ -62,15 +62,21 @@ class ActivityController extends Controller
             $actividad->map      = $fileName;
 
         }
-        /*
-        if($request->hasFile('image')){
-            $file = $request->file('image');
+        
+        if($request->hasFile('logo')){
+            $file = $request->file('logo');
             $fileName = time().$file->getClientOriginalName();
-            $file->move(public_path().'/images/activities/image/',$fileName);
-            $actividad->image      = $fileName;
-
+            $file->move(public_path().'/images/activities/logo/',$fileName);
+            
         }
-*/
+
+        if($request->hasFile('fondo')){
+            $file = $request->file('fondo');
+            $fileName = time().$file->getClientOriginalName();
+            $file->move(public_path().'/images/activities/fondo/',$fileName);
+            
+        }
+
         if($request->hasFile('terms')){
             $file = $request->file('terms');
             $fileName = time().$file->getClientOriginalName();

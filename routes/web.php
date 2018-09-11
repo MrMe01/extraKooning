@@ -32,6 +32,8 @@ Route::resource('/Categorias','CategoriesController');
 Route::resource('/Entradas','TicketController');
 
 Route::resource('/Campañas','CampaignController');
+
+Route::resource('/Blogs','BlogsController');
 /*
 Route::get('pruebas', function(){
 	return view('login.login');

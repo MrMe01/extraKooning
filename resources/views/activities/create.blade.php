@@ -35,17 +35,27 @@
 								<span class="m-form__help">Escribe la descripción del parque</span>
 							</div>
 						</div>
+
+
 						
 						<div class="form-group m-form__group row">
-							<label for="example-text-input" class="col-2 col-form-label">Imagen</label>
+							<label for="example-text-input" class="col-2 col-form-label">Mapa</label>
 							<div class="col-8">
 								<input  type="file" name="map" accept="image/png, image/jpeg, image/gif">
 							</div>
 						</div>
+
 						<div class="form-group m-form__group row">
-							<label for="example-text-input" class="col-2 col-form-label">Eslogan</label>
-							<div class="col-7">
-								<input class="form-control m-input" type="text" name="slogan" placeholder="!EL mejor Parque!"  required="required">
+							<label for="example-text-input" class="col-2 col-form-label">Logo</label>
+							<div class="col-8">
+								<input  type="file" name="logo" accept="image/png, image/jpeg, image/gif">
+							</div>
+						</div>
+
+						<div class="form-group m-form__group row">
+							<label for="example-text-input" class="col-2 col-form-label">Fondo</label>
+							<div class="col-8">
+								<input  type="file" name="fondo" accept="image/png, image/jpeg, image/gif">
 							</div>
 						</div>
 						

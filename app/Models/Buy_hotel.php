@@ -13,6 +13,7 @@ class Buy_hotel extends Model
         'rate',
         'answer',
         'booking',
+        'info',
         'purchase_id',
     ];
     // belon
