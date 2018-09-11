@@ -62,6 +62,7 @@ class ActivityController extends Controller
             $actividad->map      = $fileName;
 
         }
+        /*
         if($request->hasFile('image')){
             $file = $request->file('image');
             $fileName = time().$file->getClientOriginalName();
@@ -69,7 +70,7 @@ class ActivityController extends Controller
             $actividad->image      = $fileName;
 
         }
-
+*/
         if($request->hasFile('terms')){
             $file = $request->file('terms');
             $fileName = time().$file->getClientOriginalName();
@@ -162,7 +163,7 @@ class ActivityController extends Controller
             $activity->map  = $FileName;
 
         }
-
+/*
         if($request->hasFile('image') ){
 
             $file = public_path().'/images/activities/image/'.$activity->image;
@@ -173,7 +174,7 @@ class ActivityController extends Controller
             $Nfile->move(public_path().'/images/activities/image/',$FileName);
             $activity->image  = $FileName;
 
-        }
+        }*/
         if($request->hasFile('terms') ){
 
             $file = public_path().'/files/activities/terms/'.$activity->terms;

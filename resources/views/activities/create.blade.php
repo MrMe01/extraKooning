@@ -48,12 +48,7 @@
 								<input class="form-control m-input" type="text" name="slogan" placeholder="!EL mejor Parque!"  required="required">
 							</div>
 						</div>
-						<div class="form-group m-form__group row">
-							<label class="col-2 col-form-label">Imagen Eslogan</label>
-							<div class="col-8">
-								<input type="file" accept="image/png, image/jpeg, image/gif" name="image"required="required"/>
-							</div>
-						</div>
+						
 						<div class="form-group m-form__group row">
 							<label for="example-text-input" class="col-2 col-form-label">Ubicación</label>
 							<div class="col-7">

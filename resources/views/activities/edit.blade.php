@@ -60,13 +60,6 @@
 
 
 							<div class="form-group m-form__group row">
-										<label class="col-2 col-form-label">Imagen</label>
-					                <div class="col-8">
-					                	<input type="file" accept="image/png, image/jpeg, image/gif" name="image"/>
-					                </div>
-							</div>
-
-							<div class="form-group m-form__group row">
 								<label for="example-text-input" class="col-2 col-form-label">Ubicación</label>
 								<div class="col-7">
 									<input class="form-control m-input" name="location" type="text" value="{{$activity->location}}">

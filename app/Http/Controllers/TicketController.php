@@ -158,9 +158,9 @@ class TicketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($slug)
     {
-        $ticket = Ticket::where('name',$slug);
+        $ticket = Ticket::where('name',$slug)->get();
         $ticket = $ticket[0];
 
         $ticket->delete();
