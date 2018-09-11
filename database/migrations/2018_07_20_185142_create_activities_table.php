@@ -19,11 +19,11 @@ class CreateActivitiesTable extends Migration
             $table->longText('description');
             $table->string('map',100);
             $table->string('slogan',100);
-            $table->string('image',100);
             $table->string('location',100);
             $table->string('coordinates',300);
             $table->string('background',10);
             $table->string('terms',100);
+            $table->string('video',150)->nullable();
             $table->timestamps();
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');

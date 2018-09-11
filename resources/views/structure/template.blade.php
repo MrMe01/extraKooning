@@ -461,15 +461,107 @@
     </div>
     <!-- end::Scroll Top -->
     <!--begin::Base Scripts -->
+    <script src="{{URL::asset('js/bootstrap.js')}}" type="text/javascript"></script>
 
     <script src="{{URL::asset('js/vendors.bundle.js')}}" type="text/javascript"></script>
     <script src="{{URL::asset('js/scripts.bundle.js')}}" type="text/javascript"></script>
     <script src="{{URL::asset('js/fullcalendar.bundle.js')}}" type="text/javascript"></script>
     <script src="{{URL::asset('js/dashboard.js')}}" type="text/javascript"></script>
     <script src="{{URL::asset('js/html-table.js')}}" type="text/javascript"></script>
-        <script src="{{URL::asset('js/bootstrap.js')}}" type="text/javascript"></script>
+    <script src="{{URL::asset('js/dropzone.js')}}" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+
+Dropzone.options.dzz = {
+
+  // Prevents Dropzone from uploading dropped files immediately
+  autoProcessQueue: false,
+  uploadMultiple: true,
+  parallelUploads: 100,
+
+  init: function() {
+    var submitButton = document.querySelector("#btn")
+        dzz = this; // closure
+
+    submitButton.addEventListener("click", function() {
+      dzz.processQueue(); // Tell Dropzone to process all queued files.
+    });
+
+    // You might want to show the submit button only when 
+    // files are dropped here:
+    this.on("addedfile", function() {
+      // Show submit button here and/or inform user to click it.
+      alert("Working");
+    });
+
+  }
+};
+
+
+
+
+
+/*    
+window.onload = function() {
+    $("#btn").click(function(e){
+
+
+        Dropzone.options.dzz = {
+            url : "/Campañas",
+            paramName: "file", // The name that will be used to transfer the file
+            autoProcessQueue: false,
+            uploadMultiple: false,
+            maxFilesize: 10,
+            maxFiles: 1,
+         
+        };
+
+        
+
+
+
+
+    });//fin click btn
+ 
 
     
+};    
+    */
+
+
+
+    /*
+    Dropzone.options.dzz = {
+        url : "/Campañas",
+        paramName: "file", // The name that will be used to transfer the file
+
+        autoProcessQueue: false,
+        uploadMultiple: false,
+        maxFilesize: 10,
+        maxFiles: 1,
+
+        init: function(){
+            var btn = $('#btn');
+            dzz = this;
+
+            btn.addEventListener("submit",function(e){
+                alert("ayuda");
+                e.preventDefault();
+                e.stopPropagation();
+                myAwesomeDropzone.processQueue();
+            });
+
+            
+        }
+        
+    };
+
+
+    */
+    //var drop1 = $('div#m-dropzone-one').dropzone({url:"/Campañas/create"})
+</script>
+
 
 </body>
 

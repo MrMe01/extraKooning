@@ -4,9 +4,6 @@
 
 
 
-<!-- jonas  aqui pones todo tu codigo html  -->
-
-
 
 		            <div class="row">
 	<div class="col-xl-3 col-lg-4">

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Campaign;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 
 class CampaignController extends Controller
 {
@@ -36,6 +38,7 @@ class CampaignController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request);
         return $request;
         //return 'Campaign Store';
     }
