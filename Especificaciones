@@ -146,10 +146,10 @@ Circus-Soleil
 
 
 
-insert into ticket_time(ticket_id,time_id) values((select id from activities where name = ''),1);
+insert into ticket_time(ticket_id,time_id) values((select id from activities as vieja where name = ''),1);
 
 ///*/*/*/*/*/*/**/**
 
 
 
-
+kooning.

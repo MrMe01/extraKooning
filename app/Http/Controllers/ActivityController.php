@@ -18,7 +18,7 @@ class ActivityController extends Controller
     {
         
         $activities = Activity::orderBy('id','ASC')->paginate(5);
-
+//cambio
         return view('activities/index',compact('activities'));
     }
    /* public static function comprueba(Tipoentrada $ticket, $tickets_id)
